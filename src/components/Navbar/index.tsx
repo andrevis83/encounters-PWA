@@ -6,21 +6,13 @@ import { FaUsers } from 'react-icons/fa';
 import { MdHome } from 'react-icons/md';
 import { GiMonsterGrasp, GiSwordClash } from 'react-icons/gi';
 import { useNavbar } from './hooks/useNavbar';
-import { bottomNavigationAction } from './styles/bottomNavigationAction';
+import { bottomNavigationAction, bottomPaper } from './styles';
 
 function Navbar(): React.ReactElement {
-  const { currentRoute, handleChange } = useNavbar();
+  const { currentRoute, users, handleChange } = useNavbar();
 
   return (
-    <Paper
-      sx={{
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        right: 0,
-      }}
-      elevation={3}
-    >
+    <Paper sx={bottomPaper} elevation={3}>
       <BottomNavigation
         showLabels
         value={currentRoute}
@@ -29,14 +21,9 @@ function Navbar(): React.ReactElement {
           background: '#171717',
         }}
       >
+        <BottomNavigationAction disableRipple label="Home" icon={<MdHome />} value={'/'} sx={bottomNavigationAction} />
         <BottomNavigationAction
-          disableRipple
-          label="Home"
-          icon={<MdHome />}
-          value={'/'}
-          sx={bottomNavigationAction}
-        />
-        <BottomNavigationAction
+          disabled={users?.length === 0}
           disableRipple
           label="Personaggi"
           icon={<FaUsers />}
@@ -44,6 +31,7 @@ function Navbar(): React.ReactElement {
           sx={bottomNavigationAction}
         />
         <BottomNavigationAction
+          disabled={users?.length === 0}
           disableRipple
           label="Mostri"
           icon={<GiMonsterGrasp />}
@@ -51,6 +39,7 @@ function Navbar(): React.ReactElement {
           sx={bottomNavigationAction}
         />
         <BottomNavigationAction
+          disabled={users?.length === 0}
           disableRipple
           label="Scontri"
           icon={<GiSwordClash />}

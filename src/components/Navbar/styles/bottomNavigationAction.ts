@@ -20,4 +20,7 @@ export const bottomNavigationAction: SxProps<Theme> | undefined = {
       md: 14,
     },
   },
+  '&.Mui-disabled': {
+    opacity: 0.25,
+  },
 };

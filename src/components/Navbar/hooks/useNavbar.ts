@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useGetUsers } from '@hooks/useGetUsers';
 
 export const useNavbar = () => {
+  const { users } = useGetUsers();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -20,5 +22,5 @@ export const useNavbar = () => {
     navigate(newRoute);
   };
 
-  return { currentRoute, handleChange };
+  return { currentRoute, users, handleChange };
 };

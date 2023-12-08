@@ -25,9 +25,12 @@
     "paths": {
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
+      "@config/*": ["config/*"],
+      "@hooks/*": ["hooks/*"],
       "@pages/*": ["pages/*"],
       "@routes": ["routes"],
-      "@theme": ["theme"]
+      "@theme": ["theme"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["src"],
